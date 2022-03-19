@@ -1,0 +1,15 @@
+*{
+    border: 1px red solid;
+
+  
+}
+.calculatorBody{
+    display: flex;
+    flex-direction: column;
+}
+.calculatorDigits{
+    display: flex;
+}
+.calculatorFunctions{
+    display: flex;
+}
