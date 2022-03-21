@@ -6,10 +6,17 @@
 .calculatorBody{
     display: flex;
     flex-direction: column;
+    background-color: gray;
+    align-self: center;
+    justify-self: center;
+
 }
 .calculatorDigits{
     display: flex;
 }
 .calculatorFunctions{
     display: flex;
+}
+.button{
+    background-color: yellow;
 }
