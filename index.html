@@ -13,8 +13,13 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div class="calculatorWrapper">
         <div class="calculatorBody">
-            <div class="calculatorScreen">make a move</div>
+            <div class="screenWrapper">
+                 <div class="calculatorScreen">make a move</div>
+            </div>
+           
+            <div class="calculatorButtons">
             <div class="calculatorDigits">
                 <div class="button 1">1</div>
                 <div class="button 2">2</div>
@@ -28,14 +33,19 @@
 
             </div>
             <div class="calculatorFunctions">
-                <div class="add">+</div>
-                <div class="subtract">-</div>
-                <div class="multiply">x</div>
-                <div class="devide">/</div>
+                <div class="operator add">+</div>
+                <div class="operator subtract">-</div>
+                <div class="operator multiply">x</div>
+                <div class="operator devide">/</div>                
+                <div class="clear calculatorClear">Clear</div>
+                <div class="equal calculatorEquals">=</div>
+               
             </div>
-            <div class="calculatorEquals"></div>
-            <div class="calculatorClear"></div>
+            
+            
+          </div>
         </div>
+    </div>
         
         <script src="script.js" async defer></script>
     </body>

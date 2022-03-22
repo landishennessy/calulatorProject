@@ -3,20 +3,75 @@
 
   
 }
+.calculatorWrapper{
+    display: flex;
+    min-height: 100vh;
+    align-content: center;
+    justify-content: center;
+}
+.screenWrapper{
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+.calculatorScreen{
+    display: flex;
+    background-color: white;
+    border-radius: 5px;
+    width: 90%;
+    justify-content: center;
+    align-items: center;
+}
+.calculatorButtons{
+    display: flex;
+    flex-direction: row;
+}
+.calculatorDigits{
+    
+    display: grid;
+    grid-template-columns:repeat(3,50px);
+    grid-template-rows: repeat(3,50px);
+    grid-gap: 10px;
+    padding: 20px;
+}
+.calculatorDigits > div{
+    padding: 10px;
+    border-radius: 10px;
+
+    display: grid;
+    place-items: center;
+
+    font-family: sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: yellow;
+}
 .calculatorBody{
     display: flex;
     flex-direction: column;
     background-color: gray;
     align-self: center;
     justify-self: center;
+    border-radius: 10px;
 
 }
-.calculatorDigits{
-    display: flex;
-}
+
 .calculatorFunctions{
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
 }
-.button{
-    background-color: yellow;
+
+.calculatorFunctions > div{
+    display: flex;
+    background-color: red;
+    border-radius: 5px;
+    padding: 5px;
+    justify-content: center;
 }
+.enterClear{
+    display: flex; 
+    background-color: green; 
+}
+
