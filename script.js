@@ -23,15 +23,15 @@ const operate = function(operator,num1,num2){
         return add(num1,num2);       
     }
     else if(operator === '-'){
-        console.log('operate', num1, operator, num2)
+       
         return subtract(num1,num2)
     }
     else if(operator === 'x'){
-        console.log('operate', num1, operator, num2)
+       
         return multiply(num1,num2)
     }
     else if(operator === '/'){
-        console.log('operate', num1, operator, num2)
+        
        return divide(num1,num2)
     }
     else{
@@ -43,72 +43,70 @@ const operate = function(operator,num1,num2){
 let displayValue = '';
 let operatorValue = '';
 let currentValue = '';
+let many = '';
 let val1 = '';
 let val2 = '';
 let vals = [];
 
-
-
-const updateCurrent = function(num1){
-    displayValue = num1;
-}
-
+//     const buttons = document.querySelectorAll('.button');
+//     buttons.forEach(button =>{
+//     button.addEventListener('click', function handleClick(event){       
+      
+//         many += parseInt(button.textContent);
+//       //  many += (button.textContent);
+//         console.log('fuckup')
+//         displayValue = many
+//         document.querySelector('.calculatorScreen').textContent = many;
+       
+//        val1=vals[0]
+//        val2=vals[1]       
+//        console.log("buttons many", many)
+//        console.log("buttons vals", vals)
+//        vals.push(parseFloat(many))
+//     });
+   
+// });
 const buttons = document.querySelectorAll('.button');
 buttons.forEach(button =>{
-    button.addEventListener('click', function handleClick(event){       
-        displayValue += button.textContent;
-        console.log('display',displayValue)
-        document.querySelector('.calculatorScreen').textContent = displayValue;
-        vals.push(parseInt(button.textContent));
-
-      
-       // currentValue = button.textContent
-        // if(val1 === ''){
-        //     val1 = parseInt(button.textContent);
-        //     
-        //    // console.log('empty')
-        // }
-        // else{
-        //     val2 = parseInt(button.textContent);
-        //     vals.push(parseInt(button.textContent));
-        //    // console.log(button.textContent)
-        // }
-       console.log(vals);
-       val1=vals[0]
-       val2=vals[1]
-       
-    });
+button.addEventListener('click', function handleClick(event){       
+  
+   // many += parseInt(button.textContent);
+    many += (button.textContent);
+    console.log('fuckup')
+    displayValue = many
+    document.querySelector('.calculatorScreen').textContent = many;
    
+   val1=vals[0]
+   val2=vals[1]       
+   console.log("buttons many", many)
+   console.log("buttons vals", vals)
+   console.log('parsed',parseFloat(many))
+  // vals.push(parseFloat(many));
+  
 });
 
-
-// buttons.forEach(button =>{
-//     button.addEventListener('click', function handleClick(event){       
-//         document.querySelector('.calculatorScreen').textContent = button.textContent
-//        // currentValue = button.textContent
-//         if(val1 === ''){
-//             val1 = parseInt(button.textContent);
-//             vals.push(parseInt(button.textContent));
-//            // console.log('empty')
-//         }
-//         else{
-//             val2 = parseInt(button.textContent);
-//             vals.push(parseInt(button.textContent));
-//            // console.log(button.textContent)
-//         }
-//        console.log('currentVal=',currentValue,'val1= ',val1, 'val2 =',val2);
-//     });
-// });
-
-
-
+});
+const point = document.querySelector('.point')
+point.addEventListener('click', function handleClick(event){  
+    many += '.'
+    console.log("point many", many)
+       console.log("point vals", vals)
+});
 
 const operators = document.querySelectorAll('.operator');
 operators.forEach(operator =>{
     operator.addEventListener('click', function handleClick(event){
         displayValue += operator.textContent;
-        operatorValue = operator.textContent
-        console.log(operatorValue);
+       // many += operator.textContent;
+        many = 0;
+        operatorValue = operator.textContent;
+        document.querySelector('.calculatorScreen').textContent = displayValue;
+        console.log('pre push many', many)
+        vals.push(parseFloat(many))
+        console.log("operators many", many)
+        console.log("operators vals", vals)
+        many = 0;
+    
 
     });
 });
@@ -124,9 +122,11 @@ const calculator=function(){
     currentValue = calculation
     vals[0]=calculation;
     vals.pop();
-    console.log('newarray',vals)
+
+    console.log("calculator many", many)
+    console.log("calculator vals", vals)
     console.log('calc',calculation)
-   // console.log(val1,val2,operatorValue)
+   
     }
     else{
         console.log('not enough things')
@@ -136,16 +136,49 @@ const calculator=function(){
 
 const enter = document.querySelector('.calculatorEquals')
 enter.addEventListener('click', function handleClick(event){
+    vals.push(parseFloat(many))
+    val1=vals[0]
+    val2=vals[1]
+    console.log('enter')
+    console.log("enter many", many)
+    console.log("enter vals", vals)
     calculator();
-})
-calculator();
+    // console.log("enter many", many)
+    // console.log("enter vals", vals)
+       if(vals.length > 1){
+           console.log('pop')
+           vals.pop()
+       }
+    console.log('vals',vals)
+});
 
 const clear = document.querySelector('.calculatorClear')
 clear.addEventListener('click', function handleClick(event){
-    document.querySelector('.calculatorScreen').textContent = 'clear';
+    document.querySelector('.calculatorScreen').textContent = '';
     vals=[];
     currentValue = 0;
     displayValue = '';
+    many = '';
     console.log('clear')
+
+    console.log("clear many", many)
+    console.log("clear vals", vals)
 })
+
+
+
+    const del = document.querySelector('.del')
+    del.addEventListener('click', function handleClick(event){
+        console.log('del many', typeof (many))
+        console.log(many.slice(0,-1))
+        many = many.slice(0,-1);
+        document.querySelector('.calculatorScreen').textContent = many;
+
+
+        console.log('delete')
+
+        console.log("delete many", many)
+       console.log("delete vals", vals)
+    });
+
 
